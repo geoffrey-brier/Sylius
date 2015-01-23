@@ -55,6 +55,7 @@
         "sylius/taxonomy-bundle":         "0.13.*@dev",
         "sylius/attribute-bundle":        "0.13.*@dev",
         "sylius/variation-bundle":        "0.13.*@dev",
+        "sylius/review-bundle":           "0.13.*@dev",
         "symfony/framework-bundle":       "~2.3",
         "winzou/state-machine-bundle":    "~0.2"
     },

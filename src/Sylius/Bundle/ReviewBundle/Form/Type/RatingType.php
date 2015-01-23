@@ -30,10 +30,7 @@ class RatingType extends AbstractResourceType
             ->add('ratingValue', 'integer', array(
                 'label' => 'sylius.form.rating.ratingValue'
             ))
-            ->add('taxonCriteria', 'entity', array(
-                'class' => 'SyliusTaxonomyBundle:Taxon',
-                'label' => 'name',
-            ));
+            ->add('taxonCriteria', 'hidden');
     }
 
     /**

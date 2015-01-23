@@ -48,6 +48,13 @@ class LoadTaxonomiesData extends DataFixture
                 array($this->defaultLocale => 'Bookmania', 'es' => 'Libromania'),
             )));
 
+        $manager->persist($this->createTaxonomy(
+            array($this->defaultLocale => 'Review', 'fr' => 'Avis'),
+            array(
+                array($this->defaultLocale => 'Quality', 'fr' => 'Qualité'),
+                array($this->defaultLocale => 'Comfort', 'fr' => 'Confort'),
+            )));
+
         $manager->flush();
     }
 

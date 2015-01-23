@@ -1,8 +1,8 @@
 {
-    "name": "sylius/archetype-bundle",
+    "name": "sylius/review-bundle",
     "type": "symfony-bundle",
-    "description": "Reviews of products for your Symfony2 applications.",
-    "keywords": ["shop", "ecommerce", "products", "product", "reviews"],
+    "description": "Reviews for your Symfony2 applications.",
+    "keywords": ["shop", "ecommerce", "reviews"],
     "homepage": "http://sylius.org",
     "license": "MIT",
     "authors": [
@@ -26,8 +26,7 @@
         "stof/doctrine-extensions-bundle": "1.1.*",
         "sylius/resource-bundle":          "0.13.*@dev",
         "sylius/taxononmy-bundle":         "0.13.*@dev",
-        "sylius/product-bundle":           "0.13.*@dev",
-        "sylius/user-bundle":              "0.13.*@dev"
+        "sylius/review":                   "0.13.*@dev"
     },
     "require-dev": {
         "phpspec/phpspec":   "~2.0",

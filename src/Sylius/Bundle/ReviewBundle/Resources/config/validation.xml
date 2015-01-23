@@ -7,7 +7,7 @@
  (c) Paweł Jędrzejewski
 
  For the full copyright and license information, please view the LICENSE
- file that was distributed with this source code.
+ file that was distributed with this source globalRating.
 
 -->
 
@@ -17,29 +17,34 @@
                                         http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
 
     <class name="Sylius\Component\Review\Model\Review">
-        <property name="code">
+        <property name="globalRating">
             <constraint name="NotBlank">
-                <option name="message">sylius.archetype.code.not_blank</option>
-                <option name="groups">sylius</option>
-            </constraint>
-            <constraint name="Length">
-                <option name="min">2</option>
-                <option name="minMessage">sylius.archetype.code.min_length</option>
-                <option name="max">255</option>
-                <option name="maxMessage">sylius.archetype.code.max_length</option>
+                <option name="message">sylius.review.globalRating.not_blank</option>
                 <option name="groups">sylius</option>
             </constraint>
         </property>
-        <property name="name">
+        <property name="content">
             <constraint name="NotBlank">
-                <option name="message">sylius.archetype.name.not_blank</option>
+                <option name="message">sylius.review.content.not_blank</option>
                 <option name="groups">sylius</option>
             </constraint>
             <constraint name="Length">
                 <option name="min">2</option>
-                <option name="minMessage">sylius.archetype.name.min_length</option>
-                <option name="max">255</option>
-                <option name="maxMessage">sylius.archetype.name.max_length</option>
+                <option name="minMessage">sylius.review.content.min_length</option>
+                <option name="max">1000</option>
+                <option name="maxMessage">sylius.review.content.max_length</option>
+                <option name="groups">sylius</option>
+            </constraint>
+        </property>
+        <property name="ratings">
+            <constraint name="Valid">
+        </property>
+    </class>
+
+    <class name="Sylius\Component\Review\Model\Rating">
+        <property name="ratingValue">
+            <constraint name="NotBlank">
+                <option name="message">sylius.review.ratingValue.not_blank</option>
                 <option name="groups">sylius</option>
             </constraint>
         </property>
