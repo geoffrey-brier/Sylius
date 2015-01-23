@@ -12,8 +12,6 @@
 namespace Sylius\Component\Review\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Sylius\Component\Core\Model\UserInterface;
-use Sylius\Component\Product\Model\ProductInterface;
 
 /**
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
@@ -28,11 +26,11 @@ class Review implements ReviewInterface
     protected $id;
 
     /**
-     * Global mark.
+     * Global rating.
      *
      * @var integer
      */
-    protected $globalMark;
+    protected $globalRating;
 
     /**
      * Review content.
@@ -85,17 +83,17 @@ class Review implements ReviewInterface
     /**
      * {@inheritdoc}
      */
-    public function getGlobalMark()
+    public function getGlobalRating()
     {
-        return $this->globalMark;
+        return $this->globalRating;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setGlobalMark($globalMark)
+    public function setGlobalRating($globalRating)
     {
-        $this->globalMark = $globalMark;
+        $this->globalRating = $globalRating;
     }
 
     /**

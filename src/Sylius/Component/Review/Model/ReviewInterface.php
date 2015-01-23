@@ -24,8 +24,8 @@ interface ReviewInterface extends TimestampableInterface, SoftDeletableInterface
      */
     public function getId();
 
-    public function getGlobalMark();
-    public function setGlobalMark($globalMark);
+    public function getGlobalRating();
+    public function setGlobalRating($globalRating);
     public function getContent();
     public function setContent($content);
     public function getRatings();

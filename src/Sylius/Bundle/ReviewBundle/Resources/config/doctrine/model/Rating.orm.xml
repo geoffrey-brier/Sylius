@@ -17,28 +17,20 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                                       http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <mapped-superclass name="Sylius\Component\Review\Model\Review" table="sylius_review">
+    <mapped-superclass name="Sylius\Component\Review\Model\Rating" table="sylius_rating">
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
 
-        <field name="globalRating" column="global_rating" type="integer" />
-        <field name="content" column="content" type="text" />
+        <field name="ratingValue" column="rating_value" type="integer" nullable="false" />
 
-        <one-to-many field="ratings" target-entity="Sylius\Component\Review\Model\RatingInterface" mapped-by="review" orphan-removal="true">
-            <cascade>
-                <cascade-all />
-            </cascade>
-        </one-to-many>
+        <many-to-one field="review" target-entity="Sylius\Component\Review\Model\ReviewInterface" inversed-by="ratings">
+            <join-column name="review_id" referenced-column-name="id" nullable="false" />
+        </many-to-one>
 
-        <field name="createdAt" column="created_at" type="datetime">
-            <gedmo:timestampable on="create" />
-        </field>
-        <field name="updatedAt" column="updated_at" type="datetime" nullable="true">
-            <gedmo:timestampable on="update" />
-        </field>
-
-        <gedmo:soft-deleteable field-name="deletedAt" />
+        <many-to-one field="taxonCriteria" target-entity="Sylius\Component\Taxonomy\Model\TaxonInterface">
+            <join-column name="taxon_id" referenced-column-name="id" nullable="false" />
+        </many-to-one>
    </mapped-superclass>
 
 </doctrine-mapping>

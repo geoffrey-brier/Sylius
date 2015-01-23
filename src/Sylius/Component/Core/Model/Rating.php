@@ -11,7 +11,7 @@
 
 namespace Sylius\Component\Core\Model;
 
-use Sylius\Component\Rating\Model\Rating as BaseRating;
+use Sylius\Component\Review\Model\Rating as BaseRating;
 
 /**
  * Rating attached to order.

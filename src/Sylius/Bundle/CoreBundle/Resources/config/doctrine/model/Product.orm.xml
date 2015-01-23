@@ -48,6 +48,13 @@
         </many-to-many>
         <gedmo:loggable />
 
+        <one-to-many field="reviews" target-entity="Sylius\Component\Core\Model\ReviewInterface" mapped-by="product" orphan-removal="true">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
+
+
         <prezent:translatable current-locale="currentLocale" fallback-locale="fallbackLocale" />
     </mapped-superclass>
 
