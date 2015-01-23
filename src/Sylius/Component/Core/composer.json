@@ -36,6 +36,7 @@
         "sylius/payment":    "0.13.*@dev",
         "sylius/pricing":    "0.13.*@dev",
         "sylius/resource":   "0.13.*@dev",
+        "sylius/review":     "0.13.*@dev",
 
         "knplabs/gaufrette": "0.2.*@dev"
     },
