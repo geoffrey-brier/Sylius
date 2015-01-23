@@ -32,14 +32,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('sylius_addressing');
-
-        $rootNode
-            ->addDefaultsIfNotSet()
-            ->children()
-                ->scalarNode('driver')->isRequired()->cannotBeEmpty()->end()
-            ->end()
-        ;
+        $rootNode = $treeBuilder->root('sylius_review');
 
         $this->addClassesSection($rootNode);
         $this->addValidationGroupsSection($rootNode);
@@ -60,7 +53,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('validation_groups')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->arrayNode('address')
+                        ->arrayNode('taxonomy')
                             ->prototype('scalar')->end()
                             ->defaultValue(array('sylius'))
                         ->end()

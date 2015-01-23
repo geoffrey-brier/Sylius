@@ -63,6 +63,13 @@ class Product extends BaseProduct implements ProductInterface
     protected $restrictedZone;
 
     /**
+     * Reviews.
+     *
+     * @var ReviewInterface[]
+     */
+    protected $reviews;
+
+    /**
      * Constructor.
      */
     public function __construct()
@@ -71,6 +78,7 @@ class Product extends BaseProduct implements ProductInterface
 
         $this->setMasterVariant(new ProductVariant());
         $this->taxons = new ArrayCollection();
+        $this->reviews = new ArrayCollection();
 
         $this->variantSelectionMethod = self::VARIANT_SELECTION_CHOICE;
     }
@@ -303,5 +311,37 @@ class Product extends BaseProduct implements ProductInterface
     {
         $this->translate()->setShortDescription($shortDescription);
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getReviews()
+    {
+        return $this->reviews;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setReviews($reviews)
+    {
+        $this->reviews->clear();
+
+        foreach ($reviews as $review) {
+            $this->addReview($review);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addReview(ReviewInterface $review)
+    {
+        $this->reviews->add($review);
+
+        if ($review->getProduct() !== $this) {
+            $review->setProduct($this);
+        }
     }
 }
